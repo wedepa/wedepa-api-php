@@ -1,0 +1,26 @@
+{
+    "name": "wedepa/wedepa-api-php",
+    "description": "Library to add Wedepa services to your project.",
+    "keywords": ["wedepay", "payments"],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Wedepa",
+            "email": "info@wedepa.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+		"php": ">=7.1",
+        "ext-json": "*"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wedepa\\Api\\": "src/"
+        }
+    }
+}
