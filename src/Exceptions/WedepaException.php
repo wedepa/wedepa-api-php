@@ -54,9 +54,6 @@ class WedepaException extends \Exception
 
             $errorObject = @json_decode($body);
 
-            echo 'test';
-            print_r($body);
-
             return new static($errorObject->message, $errorObject->code, $errorObject->errors);
         }
     }
