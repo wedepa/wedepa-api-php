@@ -80,7 +80,7 @@ abstract class EndpointAbstract
      * Set parent ID
      * @param $parentId
      */
-    protected function setParent($parentId){
+    public function setParent($parentId){
         $this->parentId = $parentId;
     }
 
