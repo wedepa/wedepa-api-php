@@ -11,16 +11,57 @@ class WedepaClientTest extends PHPUnit\Framework\TestCase
         try {
             $client = new WedepaClient('kejhcnu9', 'BK2eelRk3aR1TPpjXhkCSkDDK7yfRDIR');
             print_r($client->payments->create([
-                'order_id' => 'unit' . $this->generateRandomString(4),
-                'description' => 'Unit test',
+                'method' => 'afterpay',
+                'order_id' => $this->generateRandomString(4),
+                'description' => $this->generateRandomString(16),
                 'amount' => [
                     'currency' => 'EUR',
-                    'value' => 10.12,
+                    'value' => 10.12
                 ],
                 'url' => [
-                    'return_url' => 'https://wedepa.com'
+                    'return_url' => 'https://wedepa-test.com'
                 ],
-                'ip_address' => '66.249.64.241'
+                'ip_address' => '193.131.45.153',
+                'locale' => 'nl',
+                'info' => [
+                    'dob' => '03041987',
+                    'sex' => 'm'
+                ],
+                'billing' => [
+                    'company' => '',
+                    'firstName' => 'Mark',
+                    'lastName' => 'van Haaren',
+                    'address1' => 'de Molenbeemd 20',
+                    'address2' => '',
+                    'zip' => '5066 DZ',
+                    'city' => 'Moergestel',
+                    'state' => 'Noord-Brabant',
+                    'country' => 'NL',
+                    'phone' => '0646210127',
+                    'email' => 'mark.vanhaaren@live.nl'
+                ],
+                'shipping' => [
+                    'company' => '',
+                    'firstName' => 'Mark',
+                    'lastName' => 'van Haaren',
+                    'address1' => 'de Molenbeemd 20',
+                    'address2' => '',
+                    'zip' => '5066 DZ',
+                    'city' => 'Moergestel',
+                    'state' => 'Noord-Brabant',
+                    'country' => 'NL',
+                    'phone' => '0646210127',
+                    'email' => 'mark.vanhaaren@live.nl'
+                ],
+                'products' => [
+                    [
+                        'sku' => 'test',
+                        'name' => 'Test product',
+                        'quantity' => 2,
+                        'price' => 5.06,
+                        'tax' => 21
+                    ]
+                ]
             ]));
         }
         catch (\Wedepa\Api\Exceptions\WedepaException $ex){

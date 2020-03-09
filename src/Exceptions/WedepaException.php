@@ -49,6 +49,9 @@ class WedepaException extends \Exception
             $errorObject = @json_decode($body);
             return new static('Method not allowed', 'API', [$errorObject->message]);
         }
+        else if($responseCode == 500){
+            return new static('General Wedepa exception', 'API', ['General Wedepa exception, please try again']);
+        }
         else {
             $body = (string)$response->getBody();
 
