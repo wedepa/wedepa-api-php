@@ -29,13 +29,15 @@ class CaptureEndpoint extends EndpointAbstract
     }
 
     /**
+     * @param string $paymentId
      * @param array $params
      * @param bool $execute
      * @return BaseResource
      * @throws WedepaException
      */
-    public function create($params, $execute = false)
+    public function create($paymentId, $params, $execute = false)
     {
+        $this->setParent($paymentId);
         return parent::create($params, $execute ? ['execute' => 'true'] : null);
     }
 }
