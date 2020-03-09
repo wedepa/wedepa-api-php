@@ -5,6 +5,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use stdClass;
+use Wedepa\Api\Endpoints\CaptureEndpoint;
 use Wedepa\Api\Endpoints\PaymentEndpoint;
 use Wedepa\Api\Exceptions\WedepaException;
 
@@ -41,6 +42,11 @@ class WedepaClient{
     private const api_url = 'https://api.wedepa.com';
 
     /**
+     * @var CaptureEndpoint
+     */
+    public $capture;
+
+    /**
      * @var PaymentEndpoint
      */
     public $payments;
@@ -56,6 +62,7 @@ class WedepaClient{
         $this->_secret = $secret;
 
         // init endpoints
+        $this->capture = new CaptureEndpoint($this);
         $this->payments = new PaymentEndpoint($this);
     }
 
