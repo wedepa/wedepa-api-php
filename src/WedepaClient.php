@@ -7,6 +7,7 @@ use GuzzleHttp\RequestOptions;
 use stdClass;
 use Wedepa\Api\Endpoints\CaptureEndpoint;
 use Wedepa\Api\Endpoints\PaymentEndpoint;
+use Wedepa\Api\Endpoints\RefundEndpoint;
 use Wedepa\Api\Exceptions\WedepaException;
 
 /**
@@ -52,6 +53,11 @@ class WedepaClient{
     public $payments;
 
     /**
+     * @var RefundEndpoint
+     */
+    public $refunds;
+
+    /**
      * WedepaClient constructor.
      * @param $websiteId
      * @param $secret
@@ -64,6 +70,7 @@ class WedepaClient{
         // init endpoints
         $this->capture = new CaptureEndpoint($this);
         $this->payments = new PaymentEndpoint($this);
+        $this->refunds = new RefundEndpoint($this);
     }
 
     /**

@@ -6,18 +6,15 @@ namespace Wedepa\Api\Endpoints;
 
 use Wedepa\Api\Exceptions\WedepaException;
 use Wedepa\Api\Resources\BaseResource;
-use Wedepa\Api\Resources\Capture;
+use Wedepa\Api\Resources\Refund;
 
-class CaptureEndpoint extends EndpointAbstract
+class RefundEndpoint extends EndpointAbstract
 {
-    /**
-     * @var bool
-     */
     protected $hasParent = true;
 
     protected function getResourcePath()
     {
-        return 'payment/%s/capture';
+        return 'payment/%s/refund';
     }
 
     /**
@@ -25,7 +22,7 @@ class CaptureEndpoint extends EndpointAbstract
      */
     protected function getResourceObject()
     {
-        return new Capture();
+        return new Refund();
     }
 
     /**
