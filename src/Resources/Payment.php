@@ -12,6 +12,11 @@ class Payment extends BaseResource
     public $amount;
 
     /**
+     * @var \stdClass
+     */
+    public $paid_amount;
+
+    /**
      * @var string
      */
     public $custom;
